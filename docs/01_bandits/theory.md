@@ -48,7 +48,7 @@ Then expected regret over $T$ steps is:
 
 $$
 \text{Regret}(T) =
-\sum_{t=1}^{T} \left(q_*(a^*) - q_*(A_t)\right).
+\sum_{t=1}^{T} \left(q_{\star}(a^{\star}) - q_{\star}(A_t)\right).
 $$
 
 If you explore too little, you might commit to the wrong arm and regret becomes large.  

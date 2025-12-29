@@ -76,7 +76,7 @@ This folder is a normal Python package, so you can import modules from it. Indee
 So you can do imports like:
 
 ```python
-from src.rl_algorithms_guide.bandits.epsilon_greedy import EpsilonGreedyAgent
+from rl_algorithms_guide.bandits.epsilon_greedy import EpsilonGreedyAgent
 ```
 
 This is useful because:
