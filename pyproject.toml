@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rl-algorithms-guide"
+version = "0.1.0"
+description = "Beginner friendly Reinforcement Learning algorithms with runnable examples."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+  { name = "Samuele Pesacane" }
+]
+dependencies = [
+  "numpy>=1.24",
+  "matplotlib>=3.7",
+  "gymnasium>=0.29",
+]
+
+[project.optional-dependencies]
+deep = [
+  "torch>=2.1",
+]
+sb3 = [
+  "stable-baselines3>=2.2",
+]
+offline = [
+  # common offline RL stack (lightweight defaults)
+  "tqdm>=4.66",
+]
+dev = [
+  "pytest>=7.4",
+  "ruff>=0.4",
+]
+all = [
+  "torch>=2.1",
+  "stable-baselines3>=2.2",
+  "tqdm>=4.66",
+  "pytest>=7.4",
+  "ruff>=0.4",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
