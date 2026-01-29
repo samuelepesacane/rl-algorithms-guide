@@ -175,6 +175,7 @@ pip install -e ".[all]"
 * This repo uses **Gymnasium** for environments and **PyTorch** for deep RL.
 * Tabular methods and bandits are implemented with **NumPy**.
 * I'll upload new methods as soon as I can. I am a bit busy with work, so I'll proceed slowly (sorry).
+* Before starting using Gymnasium, check its documentation [Gymnasium Docs](https://gymnasium.farama.org/)
 
 ## License
 

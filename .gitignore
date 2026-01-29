@@ -33,25 +33,23 @@ assets/plots/*
 src/rl_algorithms_guide/__pycache__/
 src/rl_algorithms_guide/common/__pycache__/
 src/rl_algorithms_guide/bandits/__pycache__/
+src/rl_algorithms_guide/tabular/__pycache__/
 src/rl_algorithms_guide.egg-info/
 tests/__pycache__/
 
 # Not Ready
-docs/02_tabular/
 docs/03_dqn/
 docs/04_pg_ac/
 docs/05_ppo/
 docs/06_sac_td3/
 docs/07_model_based/
 docs/08_offline_rl/
-examples/02_tabular/
 examples/03_dqn/
 examples/04_pg_ac/
 examples/05_ppo/
 examples/06_sac_td3/
 examples/07_model_based/
 examples/08_offline_rl/
-src/rl_algorithms_guide/tabular/
 src/rl_algorithms_guide/dqn/
 src/rl_algorithms_guide/pg_ac/
 src/rl_algorithms_guide/ppo/

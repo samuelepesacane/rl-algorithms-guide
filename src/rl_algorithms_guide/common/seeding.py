@@ -8,7 +8,7 @@ def seed_everything(seed: int) -> None:
     Seed common RNGs for reproducibility.
 
     This seeds:
-    - Python's `random`
+    - Python's random
     - NumPy
 
     If PyTorch is installed, it also seeds torch RNGs and sets some determinism flags.
@@ -19,6 +19,7 @@ def seed_everything(seed: int) -> None:
     :return: None.
         :rtype: None
     """
+    seed = int(seed)
     random.seed(seed)
     np.random.seed(seed)
 
