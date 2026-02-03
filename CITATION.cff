@@ -1,17 +1,30 @@
 cff-version: 1.2.0
-title: "Constrained Exploration for Robotic Manipulation with Lagrangian PPO and Action Shielding"
+title: "Reinforcement Learning Algorithms Guide"
+message: "If you use this software, please cite it using this metadata."
+type: software
+
 authors:
   - family-names: "Pesacane"
     given-names: "Samuele"
-  - name: "et al."
-date-released: 2025-01-01
-version: "1.0.0"
-repository-code: "https://github.com/your-org/safe-rl-manipulation"
-message: "If you use this software, please cite it using this metadata."
+
+repository-code: "https://github.com/samuelepesacane/rl-algorithms-guide"
+url: "https://github.com/samuelepesacane/rl-algorithms-guide"
+
+version: "0.1.0"
+date-released: "2025-12-15"
+
 keywords:
   - reinforcement learning
-  - robotics
-  - safety
-  - constrained MDP
-  - Lagrangian PPO
-  - action shielding
+  - bandits
+  - dynamic programming
+  - temporal-difference learning
+  - deep reinforcement learning
+  - dqn
+  - policy gradients
+  - actor-critic
+  - ppo
+  - sac
+  - offline reinforcement learning
+  - model-based reinforcement learning
+
+license: "MIT"
