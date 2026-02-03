@@ -176,6 +176,9 @@ pip install -e ".[all]"
 * Tabular methods and bandits are implemented with **NumPy**.
 * I'll upload new methods as soon as I can. I am a bit busy with work, so I'll proceed slowly (sorry).
 * Before starting using Gymnasium, check its documentation [Gymnasium Docs](https://gymnasium.farama.org/)
+* You'll see some comments repeated on purpose. My brain is basically an LSTM, so I help it remember by keeping the key ideas in the context window; a very manual form of attention 🙂
+* Occasionally you'll find small jokes about my hobbies in comments/docs (Dark Souls, ML, etc.).
+  I usually remove them before committing, but some may survive the cleanup. Consider them an easter egg.
 
 ## License
 
