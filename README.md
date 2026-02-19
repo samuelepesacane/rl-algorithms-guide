@@ -10,6 +10,12 @@ The idea is simple:
 
 I'm writing this for people who want to get comfortable with RL. The explanations focus on intuition and practical details. I'll keep the math light unless it's really necessary.
 
+**Update:** Work has been extremely busy, so updates may be slow and occasionally iterative.
+I am writing these files in the middle of the night, so there might be repetitions of some topics in theory's files. 
+I'm writing the Policy Gradients block carefully to make the theory as approachable as possible, 
+while keeping the scripts clean and easy to tweak.  
+I'm aiming to publish this block over the weekend (I am putting on hold CE Expedition 33 to have more time).
+
 ## What's included
 
 This repo aims to cover (with runnable code + notes):
@@ -17,7 +23,7 @@ This repo aims to cover (with runnable code + notes):
 - **Bandits**: $\varepsilon$-greedy, Upper Confidence Bound (UCB)
 - **Dynamic Programming**: value iteration, policy iteration
 - **Tabular control**: SARSA (State-Action-Reward-State-Action), Q-learning (and Expected SARSA)
-- **Deep RL (value-based)**: Deep Q-Network (DQN)
+- **Deep RL (value-based)**: Deep Q-Network (DQN), Double-DQN, Dueling-DQN
 - **Policy gradients**: REINFORCE (Monte Carlo policy gradient), Actor-Critic
 - **On-policy deep RL**: Proximal Policy Optimization (PPO)
 - **Off-policy deep RL**: Soft Actor-Critic (SAC), TD3 (Twin-Delayed Deep Deterministic Policy Gradient)
