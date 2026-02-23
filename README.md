@@ -16,6 +16,8 @@ I'm writing the Policy Gradients block carefully to make the theory as approacha
 while keeping the scripts clean and easy to tweak.  
 I'm aiming to publish this block over the weekend (I am putting on hold CE Expedition 33 to have more time).
 
+**After-Update:** I failed. Work and PhD applications took so much time that I couldn't upload Policy Gradients during weekend. Sorry.
+
 ## What's included
 
 This repo aims to cover (with runnable code + notes):
