@@ -12,11 +12,7 @@ I'm writing this for people who want to get comfortable with RL. The explanation
 
 **Update:** Work has been extremely busy, so updates may be slow and occasionally iterative.
 I am writing these files in the middle of the night, so there might be repetitions of some topics in theory's files. 
-I'm writing the Policy Gradients block carefully to make the theory as approachable as possible, 
-while keeping the scripts clean and easy to tweak.  
-I'm aiming to publish this block over the weekend (I am putting on hold CE Expedition 33 to have more time).
-
-**After-Update:** I failed. Work and PhD applications took so much time that I couldn't upload Policy Gradients during weekend. Sorry.
+I am also trying to get into a PhD, so time isn't much.
 
 ## What's included
 
@@ -26,7 +22,7 @@ This repo aims to cover (with runnable code + notes):
 - **Dynamic Programming**: value iteration, policy iteration
 - **Tabular control**: SARSA (State-Action-Reward-State-Action), Q-learning (and Expected SARSA)
 - **Deep RL (value-based)**: Deep Q-Network (DQN), Double-DQN, Dueling-DQN
-- **Policy gradients**: REINFORCE (Monte Carlo policy gradient), Actor-Critic
+- **Policy gradients**: REINFORCE (Monte Carlo policy gradient), Actor-Critic (AC), Advantage Actor-Critic (A2C)
 - **On-policy deep RL**: Proximal Policy Optimization (PPO)
 - **Off-policy deep RL**: Soft Actor-Critic (SAC), TD3 (Twin-Delayed Deep Deterministic Policy Gradient)
 - **Model-based RL**: Dyna / MPC (Model Predictive Control) plus one modern exemplar, such as Dreamer or MBPO (Model-based policy optimization), and I'll implement it on a small, simplified setup (toy-scale but concept-faithful)
@@ -178,6 +174,14 @@ Some sections use extra dependencies (deep RL, SB3, offline RL). You can install
 pip install -e ".[all]"
 ```
 
+# References
+
+For a more detailed analysis of these algorithms I suggest these courses:
+
+- [DeepMind Lectures on Reinforcement Learning](https://www.davidsilver.uk/teaching/) - Instructor: Dr. David Silver
+- [Reinforcement Learning: An Introduction](https://web.stanford.edu/class/psych209/Readings/SuttonBartoIPRLBook2ndEd.pdf) - authors: Richard S. Sutton and Andrew G. Barto
+- [UC Berkeley CS285](https://rail.eecs.berkeley.edu/deeprlcourse/): Deep Reinforcement Learning - Instructor: Dr. Sergey Levine
+
 ## Notes
 
 * This repo uses **Gymnasium** for environments and **PyTorch** for deep RL.
@@ -191,3 +195,10 @@ pip install -e ".[all]"
 ## License
 
 MIT (see `LICENSE`)
+
+## AI assistance
+
+The writing and documentation in this repository were edited with the assistance of an AI language model. 
+All experimental design, implementation, and results are the authors' own (mine).
+The AI language model helped in editing the notes that I take reading books, paper 
+or while watching video lecture. 

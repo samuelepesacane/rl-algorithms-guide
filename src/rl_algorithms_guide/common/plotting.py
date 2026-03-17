@@ -77,6 +77,37 @@ def save_lines(
     plt.savefig(out_path)
     plt.close()
 
+
+def pad_curves_with_last_value(curves: list[np.ndarray]) -> np.ndarray:
+    """
+    Pad variable-length curves to the same length by repeating the last value.
+
+    Different seeds may complete a different number of episodes within the same
+    step budget, so curves can have different lengths. We pad shorter
+    ones by holding their final value so all curves share a common x-axis
+    before computing mean and std.
+
+    :param curves: List of 1D arrays, one per seed or run.
+        :type curves: list[np.ndarray]
+
+    :return: 2D array of shape (n_curves, max_len).
+        :rtype: np.ndarray
+    """
+    if len(curves) == 0:
+        raise ValueError("pad_curves_with_last_value() got an empty list.")
+
+    max_len = max(int(c.shape[0]) for c in curves)
+    out = np.zeros(shape=(len(curves), max_len), dtype=np.float64)
+
+    for i, c in enumerate(curves):
+        if c.shape[0] == 0:
+            out[i, :] = np.nan
+            continue
+        out[i, : c.shape[0]] = c
+        out[i, c.shape[0]:] = c[-1]  # hold last value so the x-axis stays consistent
+    return out
+
+
 def save_lines_with_bands(
     *,
     ys_mean: Sequence[np.ndarray],

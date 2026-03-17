@@ -26,6 +26,7 @@ checkpoints/
 # File
 repo_scripts.txt
 repo_structure.txt
+commands_runs.txt
 assets/plots/*
 !assets/plots/.gitkeep
 
@@ -35,21 +36,19 @@ src/rl_algorithms_guide/common/__pycache__/
 src/rl_algorithms_guide/bandits/__pycache__/
 src/rl_algorithms_guide/tabular/__pycache__/
 src/rl_algorithms_guide/dqn/__pycache__/
+src/rl_algorithms_guide/pg_ac/__pycache__/
 src/rl_algorithms_guide.egg-info/
 tests/__pycache__/
 
 # Not Ready
-docs/04_pg_ac/
 docs/05_ppo/
 docs/06_sac_td3/
 docs/07_model_based/
 docs/08_offline_rl/
-examples/04_pg_ac/
 examples/05_ppo/
 examples/06_sac_td3/
 examples/07_model_based/
 examples/08_offline_rl/
-src/rl_algorithms_guide/pg_ac/
 src/rl_algorithms_guide/ppo/
 src/rl_algorithms_guide/sac_td3/
 src/rl_algorithms_guide/model_based/
