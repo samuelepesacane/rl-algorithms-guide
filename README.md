@@ -14,6 +14,8 @@ I'm writing this for people who want to get comfortable with RL. The explanation
 I am writing these files in the middle of the night, so there might be repetitions of some topics in theory's files. 
 I am also trying to get into a PhD, so time isn't much.
 
+**Post-Update:** Work has been extremely busy lately (as always). However, I am still actively maintaining this repository. During this time, I revised the topics I wanted to cover and added several new ones, as shown in the section below. I hope to complete and publish the remaining content as soon as possible.
+
 ## What's included
 
 This repo aims to cover (with runnable code + notes):
@@ -23,10 +25,19 @@ This repo aims to cover (with runnable code + notes):
 - **Tabular control**: SARSA (State-Action-Reward-State-Action), Q-learning (and Expected SARSA)
 - **Deep RL (value-based)**: Deep Q-Network (DQN), Double-DQN, Dueling-DQN
 - **Policy gradients**: REINFORCE (Monte Carlo policy gradient), Actor-Critic (AC), Advantage Actor-Critic (A2C)
-- **On-policy deep RL**: Proximal Policy Optimization (PPO)
-- **Off-policy deep RL**: Soft Actor-Critic (SAC), TD3 (Twin-Delayed Deep Deterministic Policy Gradient)
+- **On-policy deep RL**: Proximal Policy Optimization (PPO), Trust Region Policy Optimization (TRPO)
+- **Off-policy deep RL**: Soft Actor-Critic (SAC), TD3 (Twin-Delayed Deep Deterministic Policy Gradient), Deep Deterministic Policy Gradient (DDPG)
 - **Model-based RL**: Dyna / MPC (Model Predictive Control) plus one modern exemplar, such as Dreamer or MBPO (Model-based policy optimization), and I'll implement it on a small, simplified setup (toy-scale but concept-faithful)
-- **Offline RL**: Behavioral Cloning (BC), Conservative Q-Learning (CQL), Implicit Q-Learning (IQL)
+- **Offline RL**: Conservative Q-Learning (CQL), Implicit Q-Learning (IQL)
+- **Imitation learning**: Behavioral Cloning (BC), DAgger (Dataset Aggregation), GAIL (Generative Adversarial Imitation Learning)
+- **Partial observability (POMDP)**: recurrent policies (recurrent DQN, recurrent PPO), frame stacking, and belief states for environments where the agent only sees observations instead of the true state
+- **Meta and Multi-task RL**: MAML (Model-Agnostic Meta-Learning), $\text{RL}^{2}$ (recurrence-based meta-learning), and Multi-task RL (training one policy across a known set of tasks)
+- **Safe RL**: LagPPO (Lagrangian PPO), RCPO (Reward Constrained Policy Optimisation), CPO (Constrained Policy Optimisation) 
+- **Exploration**: Count-based exploration, Random Network Distillation (RND), curiosity-driven exploration
+- **Training strategy**: Curriculum Learning, Reward Shaping
+- **Hierarchical RL**: Options framework / Option-Critic, Feudal Networks (FuN), skill discovery (DIAYN, Diversity Is All You Need)
+- **LLM RL**: RLHF (Reinforcement Learning from Human Feedback), DPO (Direct Preference Optimization), RLAIF (Reinforcement Learning from AI Feedback)
+- **Evaluation and reproducibility**: Statistical comparison across seeds, reporting conventions, hyperparameter sensitivity analysis
 
 Some modules will be work in progress while I build them out, but the goal is that everything above ends up explained and runnable.
 
@@ -187,8 +198,8 @@ For a more detailed analysis of these algorithms I suggest these courses:
 * This repo uses **Gymnasium** for environments and **PyTorch** for deep RL.
 * Tabular methods and bandits are implemented with **NumPy**.
 * I'll upload new methods as soon as I can. I am a bit busy with work, so I'll proceed slowly (sorry).
-* Before starting using Gymnasium, check its documentation [Gymnasium Docs](https://gymnasium.farama.org/)
-* You'll see some comments repeated on purpose. My brain is basically an LSTM, so I help it remember by keeping the key ideas in the context window; a very manual form of attention 🙂
+* Before starting using Gymnasium, check its documentation [Gymnasium Docs](https://gymnasium.farama.org/).
+* You'll see some comments repeated on purpose. My brain is basically an LSTM, so I help it remember by keeping the key ideas in the context window; a very manual form of attention (basically my memory is really short).
 * Occasionally you'll find small jokes about my hobbies in comments/docs (Dark Souls, ML, etc.).
   I usually remove them before committing, but some may survive the cleanup. Consider them an easter egg.
 
