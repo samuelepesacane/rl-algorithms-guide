@@ -179,11 +179,13 @@ pip install -e .
 
 ### Optional extras
 
-Some sections use extra dependencies (deep RL, SB3, offline RL). You can install everything with:
+Some sections use extra dependencies (deep RL, SB3, offline RL). The quickest path is to install everything:
 
 ```bash
 pip install -e ".[all]"
 ```
+
+If you'd rather install only what a given block needs, `docs/INSTALL.md` has a per-block table (for example, block 03 from scratch is `pip install -e ".[deep]"`).
 
 # References
 

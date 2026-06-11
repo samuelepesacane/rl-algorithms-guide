@@ -349,4 +349,4 @@ The basic MDP assumes fully observable state.
 If the environment is partially observable, you get a POMDP: you don't see the true state directly, only observations.
 A standard trick is to work with a belief state (a probability distribution over states), which becomes Markov again.
 
-For now, you can treat this as later topics.
+For now, you can treat this as a later topic. We come back to it properly in block 10 (partial observability), where the belief state idea gives way to memory-based policies that read a history of observations instead of a single state.
