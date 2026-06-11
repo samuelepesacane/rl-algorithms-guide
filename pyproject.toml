@@ -19,24 +19,44 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+# Optional dependencies, grouped by what they are for. Install only what a block
+# needs, like `pip install -e ".[deep]"`, or combine them, like `pip install -e ".[sb3,box2d]"`
+
+# PyTorch, used by every from-scratch neural block (DQN onward).
 deep = [
   "torch>=2.1",
 ]
+# Stable-Baselines3: the tuned library we compare our own code against
+# (the train_sb3_* scripts).
 sb3 = [
   "stable-baselines3>=2.2",
 ]
+# Adds TRPO, the one block 05 algorithm that core SB3 is missing. Installing
+# this also brings SB3 itself in.
+sb3-contrib = [
+  "sb3-contrib>=2.2",
+]
+# Box2D environments (LunarLander, blocks 03 and 05). swig is what builds them.
+box2d = [
+  "swig>=4.2",
+  "gymnasium[box2d]>=0.29",
+]
+# d3rlpy: the library we compare our own offline RL against (block 08).
 offline = [
-  # common offline RL stack (lightweight defaults)
-  "tqdm>=4.66",
+  "d3rlpy>=2.8",
 ]
 dev = [
   "pytest>=7.4",
   "ruff>=0.4",
 ]
+# Everything at once (handy for development; pulls every optional baseline).
 all = [
   "torch>=2.1",
   "stable-baselines3>=2.2",
-  "tqdm>=4.66",
+  "sb3-contrib>=2.2",
+  "swig>=4.2",
+  "gymnasium[box2d]>=0.29",
+  "d3rlpy>=2.8",
   "pytest>=7.4",
   "ruff>=0.4",
 ]
