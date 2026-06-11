@@ -57,9 +57,18 @@ for how many times I saw it), but optimism is not.
 **Core implementation**
 - `src/rl_algorithms_guide/dqn/dqn.py`
 
-**Example scripts**
+**Example scripts (scratch implementation)**
 - `examples/03_dqn/train_dqn_cartpole.py`
 - `examples/03_dqn/train_dqn_lunarlander.py`
+
+**Library baseline (Stable-Baselines3)**
+- `examples/03_dqn/train_sb3_cartpole.py`
+- `examples/03_dqn/train_sb3_lunarlander.py`
+
+These run a production-quality DQN from Stable-Baselines3 on the same two
+environments, so you can compare the repo's own curves against a tuned
+reference. SB3's core DQN is plain DQN, so it is the vanilla-DQN baseline;
+the Double and Dueling variants above are the repo's own contribution.
 
 ---
 
@@ -76,7 +85,7 @@ python examples/03_dqn/train_dqn_cartpole.py --algo dueling
 python examples/03_dqn/train_dqn_cartpole.py --algo double_dueling
 ```
 
-### LunarLander-v2 (harder, needs more steps)
+### LunarLander-v3 (harder, needs more steps)
 
 ```bash
 python examples/03_dqn/train_dqn_lunarlander.py --algo dqn
@@ -84,6 +93,16 @@ python examples/03_dqn/train_dqn_lunarlander.py --algo double
 python examples/03_dqn/train_dqn_lunarlander.py --algo dueling
 python examples/03_dqn/train_dqn_lunarlander.py --algo double_dueling
 ```
+
+### Stable-Baselines3 baseline (tuned reference)
+
+```bash
+python examples/03_dqn/train_sb3_cartpole.py
+python examples/03_dqn/train_sb3_lunarlander.py
+```
+
+These need Stable-Baselines3 (`pip install stable-baselines3`); LunarLander
+also needs Box2D (`pip install swig "gymnasium[box2d]"`).
 
 ---
 
@@ -98,6 +117,8 @@ Typical outputs:
 * `dqn_*_returns.png` (episode returns)
 * `dqn_*_loss.png` (training loss / TD loss)
 * `dqn_*_epsilon.png` (epsilon schedule)
+* `sb3_dqn_cartpole_eval_returns_mean_std.png` (SB3 baseline, CartPole)
+* `sb3_dqn_lunarlander_eval_returns_mean_std.png` (SB3 baseline, LunarLander)
 
 If returns go up, you’re learning. If loss goes to NaN, you're learning... a valuable lesson.
 

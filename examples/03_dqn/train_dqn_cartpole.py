@@ -38,6 +38,7 @@ import numpy as np
 
 from rl_algorithms_guide.common.plotting import save_lines, save_lines_with_bands
 from rl_algorithms_guide.common.seeding import seed_everything
+from rl_algorithms_guide.common.gym_utils import extract_env_name
 from rl_algorithms_guide.dqn.dqn import DQNAgent, DQNConfig, linear_epsilon
 
 
@@ -54,6 +55,11 @@ def parse_args() -> argparse.Namespace:
         :rtype: argparse.Namespace
     """
     parser = argparse.ArgumentParser(description="Train DQN variants on CartPole-v1.")
+    parser.add_argument("--env-id",
+                        type=str,
+                        default="CartPole-v1",
+                        help="Gymnasium environment id (must be a discrete-action env for DQN)."
+                        )
     parser.add_argument(
         "--algo",
         type=str,
@@ -238,8 +244,10 @@ def run_one_seed(
     rng = np.random.default_rng(seed)
 
     # Create the environment and read the dimensions needed to build a Q-network
-    env = gym.make("CartPole-v1")
+    env = gym.make(args.env_id)
     obs_dim = int(env.observation_space.shape[0])
+    if not isinstance(env.action_space, gym.spaces.Discrete):
+        raise ValueError("This script expects a discrete action space.")
     n_actions = int(env.action_space.n)
 
     # The agent contains:
@@ -381,7 +389,9 @@ def main():
             print(f"[seed={s}] Finished: {args.algo} | no episodes completed (increase total-steps)")
 
     # Plots
-    prefix = f"{args.algo}_cartpole"
+    # Extract env name for plots and filenames
+    env_name = extract_env_name(args.env_id)
+    prefix = f"{args.algo}_{env_name}"
 
     # 1) Return curve (learning), aggregated across seeds
     returns_mat = pad_curves_with_last_value(curves=all_episode_returns)
@@ -392,7 +402,7 @@ def main():
         ys_mean=[returns_mean],
         ys_std=[returns_std],
         labels=[f"return (n={len(seeds)})"],
-        title=f"Episode Return ({args.algo}) on CartPole-v1",
+        title=f"Episode Return ({args.algo}) on {args.env_id}",
         xlabel="Episode",
         ylabel="Return",
         out_path=os.path.join(args.plot_dir, f"{prefix}_returns_mean_std.png"),
@@ -412,7 +422,7 @@ def main():
             ys_mean=[loss_mean],
             ys_std=[loss_std],
             labels=[f"huber loss (n={len(seeds)})"],
-            title=f"TD Loss ({args.algo}) on CartPole-v1",
+            title=f"TD Loss ({args.algo}) on {args.env_id}",
             xlabel="Update",
             ylabel="Huber loss",
             out_path=os.path.join(args.plot_dir, f"{prefix}_loss_mean_std.png"),
@@ -450,7 +460,7 @@ def main():
         save_lines(
             ys=[np.asarray(episode_returns, dtype=np.float64)],
             labels=["return"],
-            title=f"Episode Return ({args.algo}) on CartPole-v1",
+            title=f"Episode Return ({args.algo}) on {args.env_id}",
             xlabel="Episode",
             ylabel="Return",
             out_path=os.path.join(args.plot_dir, f"{prefix}_returns.png"),
@@ -462,7 +472,7 @@ def main():
             save_lines(
                 ys=[np.asarray(losses, dtype=np.float64)],
                 labels=["huber loss"],
-                title=f"TD Loss ({args.algo}) on CartPole-v1",
+                title=f"TD Loss ({args.algo}) on {args.env_id}",
                 xlabel="Update",
                 ylabel="Huber loss",
                 out_path=os.path.join(args.plot_dir, f"{prefix}_loss.png"),

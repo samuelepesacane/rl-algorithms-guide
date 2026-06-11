@@ -1,6 +1,6 @@
-"""Train DQN-style agents on LunarLander-v2.
+"""Train DQN-style agents on LunarLander-v3.
 
-Before using LunarLander-v2, read the Gymnasium environment documentation.
+Before using LunarLander-v3, read the Gymnasium environment documentation.
 This is valid for all envs you try to use in a project. You should know the env before using it.
 
 Algorithms supported (via --algo):
@@ -36,6 +36,7 @@ import os
 
 from rl_algorithms_guide.common.seeding import seed_everything
 from rl_algorithms_guide.common.plotting import save_lines, save_lines_with_bands
+from rl_algorithms_guide.common.gym_utils import extract_env_name
 from rl_algorithms_guide.dqn.dqn import DQNAgent, DQNConfig, linear_epsilon
 
 
@@ -48,11 +49,11 @@ def parse_args() -> argparse.Namespace:
     :return: Parsed args namespace.
         :rtype: argparse.Namespace
     """
-    p = argparse.ArgumentParser(description="Train DQN variants on LunarLander-v2 (discrete).")
+    p = argparse.ArgumentParser(description="Train DQN variants on LunarLander-v3 (discrete).")
 
     p.add_argument("--env-id",
                    type=str,
-                   default="LunarLander-v2",
+                   default="LunarLander-v3",
                    help="Gymnasium environment id")
     p.add_argument("--total-steps",
                    type=int,
@@ -328,7 +329,7 @@ def run_one_seed(
 
 def main():
     """
-    Train a DQN variant on LunarLander-v2 and save learning curves.
+    Train a DQN variant on LunarLander-v3 and save learning curves.
 
     This follows the same DQN loop as the theory:
     1) interact with env using epsilon-greedy
@@ -394,7 +395,9 @@ def main():
             print(f"[seed={s}] Finished: {args.algo} | no episodes completed (increase total-steps)")
 
     # Save plots
-    prefix = f"{args.algo}_lunarlander"
+    # Extract env name for plots and filenames
+    env_name = extract_env_name(args.env_id)
+    prefix = f"{args.algo}_{env_name}"
 
     # 1) Returns: variable episode count -> pad by repeating last value
     returns_mat = pad_curves_with_last_value(curves=all_episode_returns)
@@ -405,7 +408,7 @@ def main():
         ys_mean=[returns_mean],
         ys_std=[returns_std],
         labels=[f"return (n={len(seeds)})"],
-        title=f"Episode Return ({args.algo}) on LunarLander-v2",
+        title=f"Episode Return ({args.algo}) on {args.env_id}",
         xlabel="Episode",
         ylabel="Return",
         out_path=os.path.join(args.outdir, f"{prefix}_returns_mean_std.png"),
@@ -424,7 +427,7 @@ def main():
             ys_mean=[loss_mean],
             ys_std=[loss_std],
             labels=[f"huber loss (n={len(seeds)})"],
-            title=f"TD Loss ({args.algo}) on LunarLander-v2",
+            title=f"TD Loss ({args.algo}) on {args.env_id}",
             xlabel="Update",
             ylabel="Huber loss",
             out_path=os.path.join(args.outdir, f"{prefix}_loss_mean_std.png"),
@@ -461,7 +464,7 @@ def main():
         save_lines(
             ys=[np.asarray(episode_returns, dtype=np.float64)],
             labels=[f"{args.algo}"],
-            title=f"LunarLander-v2 returns ({args.algo})",
+            title=f"{args.env_id} returns ({args.algo})",
             xlabel="episode",
             ylabel="return",
             out_path=os.path.join(args.outdir, f"{prefix}_returns.png"),
@@ -475,7 +478,7 @@ def main():
             save_lines(
                 ys=[np.asarray(losses, dtype=np.float64)],
                 labels=[f"{args.algo}"],
-                title=f"LunarLander-v2 TD loss ({args.algo})",
+                title=f"{args.env_id} TD loss ({args.algo})",
                 xlabel="update",
                 ylabel="Huber loss",
                 out_path=os.path.join(args.outdir, f"{prefix}_loss.png"),
