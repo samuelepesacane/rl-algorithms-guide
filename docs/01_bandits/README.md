@@ -10,6 +10,8 @@ You can focus on the one thing that shows up everywhere in RL:
 
 **exploration vs exploitation.**
 
+> Already know this block and just need a refresh? See `docs/01_bandits/cheatsheet.md`.
+
 ---
 
 ## What you'll learn here
