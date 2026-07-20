@@ -12,6 +12,8 @@ We will look at two big families of methods:
 This is based on the same core idea: the **Bellman equations**.
 DP uses full-width backups (expectations over all next states). TD uses sample backups (single transitions). 
 
+> Already know this block and just need a refresh? See `docs/02_tabular/cheatsheet.md`.
+
 ---
 
 ## What to read (recommended order)
